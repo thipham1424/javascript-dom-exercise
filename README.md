@@ -22,10 +22,10 @@ The exercises focus on selecting elements, modifying content dynamically, handli
 
 ```bash
 javascript-dom-exercise/
-├── assets/
-├── exercises/
-├── js/
-├── index.html
+├── exercise-one/
+    ├── assets/
+    ├── js/
+        ├── index.html
 ├── README.md
 ```
 
