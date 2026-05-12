@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" >
+    <title>About Me</title>
+    <style>
+      .listitem {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>About Me</h1>
+
+    <ul>
+      <li>Nickname: <span id="nickname"></span></li>
+      <li>Favorites: <span id="favorites"></span></li>
+      <li>Hometown: <span id="hometown"></span></li>
+    </ul>
+
+    <script>
+      document.body.style.fontFamily = "Arial, sans-serif";
+      document.getElementById("nickname").innerHTML = 
+        "Thi Pham";
+      document.getElementById("favorites").innerHTML =
+        "playing guitar, watching films, and listening to music";
+      document.getElementById("hometown").innerHTML =
+        "Tam Ky ward, Da Nang city, Vietnam";
+      var items = document.getElementsByTagName("li");
+      for (var i = 0; i < items.length; i++) {
+        items[i].className = "listitem";
+      }
+
+      var myPhoto = document.createElement("img");
+      myPhoto.src = "./asset/TP-headshot.png";
+      document.body.appendChild(myPhoto);
+    </script>
+  </body>
+</html>
