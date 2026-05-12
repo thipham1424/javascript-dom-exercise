@@ -22,6 +22,9 @@ The exercises focus on selecting elements, modifying content dynamically, handli
 
 ```bash
 javascript-dom-exercise/
+├── exercise-two/
+    ├── js/
+        ├── paragraph-background-color.html
 ├── README.md
 ```
 
