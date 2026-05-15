@@ -14,77 +14,77 @@
       <h1>Sign Up Page</h1>
 
       <form class="js-signup-form">
-        <!-- EMAIL -->
-        <div class="form-row">
-          <label>Email:</label>
+        <div>
+          <p class="error js-email-error">
+            Email address empty or wrong format. example: username@somewhere.sth
+          </p>
+          <div class="form-row">
+            <label>Email:</label>
 
-          <div class="form-input">
-            <p class="error js-email-error">
-              Email address empty or wrong format. example:
-              username@somewhere.sth
-            </p>
-
-            <input type="text" class="js-email">
+            <div class="form-input">
+              <input type="text" class="js-email">
+            </div>
           </div>
         </div>
 
-        <!-- USERNAME -->
-        <div class="form-row">
-          <label>Username:</label>
+        <div>
+          <p class="error js-username-error">
+            Please enter the correct format for Username. (No leading or
+            trailing spaces)
+          </p>
+          <div class="form-row">
+            <label>Username:</label>
 
-          <div class="form-input">
-            <p class="error js-username-error">
-              Please enter the correct format for Username. (No leading or
-              trailing spaces)
-            </p>
-
-            <input type="text" class="js-username">
+            <div class="form-input">
+              <input type="text" class="js-username">
+            </div>
           </div>
         </div>
 
-        <!-- PASSWORD -->
-        <div class="form-row">
-          <label>Password:</label>
+        <div>
+          <p class="error js-password-error">
+            Please enter the correct format for password. (8 characters at least
+            one non-letter)
+          </p>
+          <div class="form-row">
+            <label>Password:</label>
 
-          <div class="form-input">
-            <p class="error js-password-error">
-              Please enter the correct format for password. (8 characters at
-              least one non-letter)
-            </p>
-
-            <input
-              type="password"
-              class="js-password"
-              autocomplete="new-password"
-            >
+            <div class="form-input">
+              <input
+                type="password"
+                class="js-password"
+                autocomplete="new-password"
+              >
+            </div>
           </div>
         </div>
 
-        <!-- CONFIRM PASSWORD -->
-        <div class="form-row">
-          <label>Confirm Password:</label>
+        <div>
+          <p class="error js-confirm-error">
+            Please enter the correct format for confirm password. (8 characters
+            at least one non-letter)
+          </p>
+          <div class="form-row">
+            <label>Confirm Password:</label>
 
-          <div class="form-input">
-            <p class="error js-confirm-error">
-              Please enter the correct format for confirm password. (8
-              characters at least one non-letter)
-            </p>
-
-            <input
-              type="password"
-              class="js-confirm-password"
-              autocomplete="new-password"
-            >
+            <div class="form-input">
+              <input
+                type="password"
+                class="js-confirm-password"
+                autocomplete="new-password"
+              >
+            </div>
           </div>
         </div>
 
-        <!-- BUTTONS -->
         <div class="button-group">
           <button type="submit">SignUp</button>
 
           <button type="reset">Reset</button>
         </div>
       </form>
+
+      <div class="js-user-info"></div>
 
       <a class="back-link" href="../index.html"> Back to index page </a>
     </div>
