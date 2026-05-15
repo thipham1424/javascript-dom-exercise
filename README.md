@@ -24,6 +24,7 @@ The exercises focus on selecting elements, modifying content dynamically, handli
 javascript-dom-exercise/
 ├── exercise-two/
     ├── js/
+        ├── sphere-volumn-calculator.html
         ├── count-dropdown-items.html
         ├── remove-dropdown-item.html
         ├── add-table-rows.html

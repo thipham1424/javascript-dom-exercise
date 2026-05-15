@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Input radius value and get the volume of a sphere.</p>
+    <form method="post" id="MyForm">
+      <label for="radius">Radius: </label
+      ><input type="text" name="radius" id="radius" required >
+      <label for="volume">Volume: </label
+      ><input type="text" name="volume" id="volume" >
+      <button type="submit" value="Calculate" id="submit">Calculate</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("MyForm");
+      form.addEventListener("submit", function () {
+        event.preventDefault();
+        const radiusInput = document.getElementById("radius");
+        const volumeInput = document.getElementById("volume");
+        const radius = parseFloat(radiusInput.value);
+
+        if (!isNaN(radius) && radius > 0) {
+          const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+          volumeInput.value = volume.toFixed(4);
+        } else {
+          alert("Invalid radius");
+        }
+      });
+    </script>
+  </body>
+</html>
