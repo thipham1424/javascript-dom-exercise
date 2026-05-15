@@ -32,6 +32,10 @@ javascript-dom-exercise/
         ├── remove-dropdown-item.html
         ├── sphere-volumn-calculator.html
         ├── style-paragraph.html
+├── exercise-one/
+    ├── assets/
+    ├── js/
+        ├── index.html
 ├── README.md
 ```
 
