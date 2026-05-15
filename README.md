@@ -25,6 +25,10 @@ javascript-dom-exercise/
 ├── exercise-two/
     ├── js/
         ├── remove-dropdown-item.html
+        ├── add-table-rows.html
+        ├── style-paragraph.html
+        ├── get-form-values.html
+        ├── paragraph-background-color.html
 ├── README.md
 ```
 
