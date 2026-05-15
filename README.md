@@ -22,6 +22,16 @@ The exercises focus on selecting elements, modifying content dynamically, handli
 
 ```bash
 javascript-dom-exercise/
+├── exercise-two/
+    ├── js/
+        ├── add-table-rows.html
+        ├── count-dropdown-items.html
+        ├── get-form-values.html
+        ├── get-link-attributes.html
+        ├── paragraph-background-color.html
+        ├── remove-dropdown-item.html
+        ├── sphere-volumn-calculator.html
+        ├── style-paragraph.html
 ├── exercise-one/
     ├── assets/
     ├── js/
