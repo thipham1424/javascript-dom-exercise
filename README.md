@@ -26,6 +26,7 @@ javascript-dom-exercise/
     ├── js/
         ├── style-paragraph.html
         ├── get-form-values.html
+        ├── paragraph-background-color.html
 ├── README.md
 ```
 
