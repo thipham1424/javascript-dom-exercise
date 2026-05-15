@@ -25,6 +25,12 @@ javascript-dom-exercise/
 ├── exercise-two/
     ├── js/
         ├── sphere-volumn-calculator.html
+        ├── count-dropdown-items.html
+        ├── remove-dropdown-item.html
+        ├── add-table-rows.html
+        ├── style-paragraph.html
+        ├── get-form-values.html
+        ├── paragraph-background-color.html
 ├── README.md
 ```
 
