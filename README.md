@@ -25,6 +25,9 @@ javascript-dom-exercise/
 ├── exercise-two/
     ├── js/
         ├── add-table-rows.html
+        ├── style-paragraph.html
+        ├── get-form-values.html
+        ├── paragraph-background-color.html
 ├── README.md
 ```
 
