@@ -8,55 +8,40 @@ const getElement = (selector, errorMessage) => {
   return element;
 };
 
-const signupForm = getElement(
-  ".js-signup-form",
-  "Signup form not found"
-);
+const signupForm = getElement(".js-signup-form", "Signup form not found");
 
-const emailInput = getElement(
-  ".js-email",
-  "Email input not found"
-);
+const emailInput = getElement(".js-email", "Email input not found");
 
-const usernameInput = getElement(
-  ".js-username",
-  "Username input not found"
-);
+const usernameInput = getElement(".js-username", "Username input not found");
 
-const passwordInput = getElement(
-  ".js-password",
-  "Password input not found"
-);
+const passwordInput = getElement(".js-password", "Password input not found");
 
 const confirmPasswordInput = getElement(
   ".js-confirm-password",
-  "Confirm password input not found"
+  "Confirm password input not found",
 );
 
 const emailError = getElement(
   ".js-email-error",
-  "Email error element not found"
+  "Email error element not found",
 );
 
 const usernameError = getElement(
   ".js-username-error",
-  "Username error element not found"
+  "Username error element not found",
 );
 
 const passwordError = getElement(
   ".js-password-error",
-  "Password error element not found"
+  "Password error element not found",
 );
 
 const confirmError = getElement(
   ".js-confirm-error",
-  "Confirm password error element not found"
+  "Confirm password error element not found",
 );
 
-const userInfo = getElement(
-  ".js-user-info",
-  "User info element not found"
-);
+const userInfo = getElement(".js-user-info", "User info element not found");
 
 // Email format
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -143,7 +128,7 @@ const validateForm = (event) => {
     usernameRegex.test(username) &&
     passwordRegex.test(password);
 
-  if (!isEmailValid || !isUsernameValid || !isPasswordValid) {
+  if (!isFormValid) {
     return;
   }
 
@@ -182,27 +167,27 @@ signupForm.addEventListener("reset", () => {
   requestAnimationFrame(() => {
     emailError.textContent = [
       "Email address empty or wrong format.",
-      "Example: username@somewhere.sth"
+      "Example: username@somewhere.sth",
     ].join(" ");
 
     usernameError.textContent = [
       "Please enter the correct format",
       "for Username.",
-      "(No leading or trailing spaces)"
+      "(No leading or trailing spaces)",
     ].join(" ");
 
     passwordError.textContent = [
       "Please enter the correct format",
       "for password.",
-      "(8 characters at least one non-letter)"
+      "(8 characters at least one non-letter)",
     ].join(" ");
 
     confirmError.textContent = [
       "Please enter the correct format",
       "for confirm password.",
-      "(8 characters at least one non-letter)"
+      "(8 characters at least one non-letter)",
     ].join(" ");
-    
+
     userInfo.innerHTML = "";
   });
 });
