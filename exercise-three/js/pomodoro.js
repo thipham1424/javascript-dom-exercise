@@ -1,4 +1,4 @@
-let tasks = [
+const tasks = [
   {
     taskName: "Write pomodoro app",
     pomodoroDone: 2,
