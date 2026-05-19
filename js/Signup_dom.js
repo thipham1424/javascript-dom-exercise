@@ -46,108 +46,54 @@ const usernameRegex =
 const passwordRegex =
   /^(?=.*[^A-Za-z]).{8,}$/;
 
-// EMAIL
-emailInput.addEventListener(
-  "input",
-  function () {
+function validateInput(
+  inputElement,
+  errorElement,
+  regex,
+  errorMessage
+) {
+  input.addEventListener("input", () => {
 
-    const email = emailInput.value;
+    const value = inputElement.value;
 
     if (
-      email.trim() !== ""
+      value.trim() !== ""
       &&
-      emailRegex.test(email)
+      regex.test(value)
     ) {
-
-      emailError.innerHTML = "";
+      errorElement.innerHTML = "";
+    } else {
+      errorElement.innerHTML = errorMessage;
     }
+  });
+}
 
-    else {
-
-      emailError.innerHTML = `
-        Email address empty or wrong format.
-        example: username@somewhere.sth
-      `;
-    }
-  }
-);
+// EMAIL
+validateInput(emailInput, emailError, emailRegex, `
+  Email address empty or wrong format.
+  example: usename.@somewhere.sth
+`);
 
 // USERNAME
-usernameInput.addEventListener(
-  "input",
-  function () {
-
-    const username = usernameInput.value;
-
-    if (
-      username.trim() !== ""
-      &&
-      usernameRegex.test(username)
-    ) {
-
-      usernameError.innerHTML = "";
-    }
-
-    else {
-
-      usernameError.innerHTML = `
-        Please enter the correct format
-        for Username.
-        (No leading or trailing spaces)
-      `;
-    }
-  }
-);
+validateInput(usernameInput, usernameError, usernameRegex, `
+  Please enter the correct format
+  for Username.
+  (No leading or trailing spaces)
+`);
 
 // PASSWORD
-passwordInput.addEventListener(
-  "input",
-  function () {
-
-    const password = passwordInput.value;
-
-    if (
-      passwordRegex.test(password)
-    ) {
-
-      passwordError.innerHTML = "";
-    }
-
-    else {
-
-      passwordError.innerHTML = `
-        Please enter the correct format
-        for password.
-        (8 characters at least one non-letter)
-      `;
-    }
-  }
-);
+validateInput(passwordInput, passwordError, passwordRegex, `
+  Please enter the correct format
+  for password.
+  (8 characters at least one non-letter)
+`);
 
 // CONFIRM PASSWORD
-confirmPasswordInput.addEventListener(
-  "input",
-  function () {
-
-    const confirmPassword = confirmPasswordInput.value;
-
-    if (
-      passwordRegex.test(confirmPassword)
-    ) {
-
-      confirmError.innerHTML = "";
-    }
-
-    else {
-
-      confirmError.innerHTML = `
-        Please enter the correct format
-        for confirm password.
-        (8 characters at least one non-letter)
-      `;
-    }
-  }
-);
+validateInput(confirmPasswordInput, confirmError, passwordRegex, `
+  Please enter the correct format
+  for confirm password.
+  (8 characters at least one non-letter)
+`);
 
 function validateForm(event) {
 
