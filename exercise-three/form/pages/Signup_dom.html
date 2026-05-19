@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up Page</title>
+
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Sign Up Page</h1>
+
+      <form class="js-signup-form">
+        <div>
+          <p class="error js-email-error">
+            Email address empty or wrong format. example: username@somewhere.sth
+          </p>
+          <div class="form-row">
+            <label>Email:</label>
+
+            <div class="form-input">
+              <input type="text" class="js-email">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="error js-username-error">
+            Please enter the correct format for Username. (No leading or
+            trailing spaces)
+          </p>
+          <div class="form-row">
+            <label>Username:</label>
+
+            <div class="form-input">
+              <input type="text" class="js-username">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="error js-password-error">
+            Please enter the correct format for password. (8 characters at least
+            one non-letter)
+          </p>
+          <div class="form-row">
+            <label>Password:</label>
+
+            <div class="form-input">
+              <input
+                type="password"
+                class="js-password"
+                autocomplete="new-password"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="error js-confirm-error">
+            Please enter the correct format for confirm password. (8 characters
+            at least one non-letter)
+          </p>
+          <div class="form-row">
+            <label>Confirm Password:</label>
+
+            <div class="form-input">
+              <input
+                type="password"
+                class="js-confirm-password"
+                autocomplete="new-password"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit">SignUp</button>
+
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+
+      <div class="js-user-info"></div>
+
+      <a class="back-link" href="../index.html"> Back to index page </a>
+    </div>
+
+    <script src="../js/Signup_dom.js"></script>
+  </body>
+</html>
