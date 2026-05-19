@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" >
+    <title>Count and display items of a dropdown list - w3resource</title>
+  </head>
+  <body>
+    <form>
+      <select id="colorSelect">
+        <option>Red</option>
+        <option>Green</option>
+        <option>White</option>
+        <option>Black</option>
+      </select>
+      <button
+        type="submit"
+        id="getOptionBtn"
+        value="Count and Output all items"
+      >
+        Count and Output all items
+      </button>
+    </form>
+
+    <script>
+      const getOptionBtn = document.getElementById("getOptionBtn");
+      getOptionBtn.addEventListener("click", countItems);
+
+      function countItems() {
+        const options = document.getElementById("colorSelect");
+        const count = options.length;
+
+        if (count > 0) {
+          const items = Array.from(options).map((option) => option.text);
+          alert(`Number of items: ${count}\nItems: ${items.join(", ")}`);
+        } else {
+          alert("The list is empty");
+        }
+      }
+    </script>
+  </body>
+</html>
