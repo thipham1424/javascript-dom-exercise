@@ -25,27 +25,14 @@ const tasks = [
   },
 ];
 
-const pomodoroForm = document.querySelector(
-  ".js-add-task"
-);
+const pomodoroForm = document.querySelector(".js-add-task");
 
-const pomodoroTableBody = document.querySelector(
-  ".js-task-table-body"
-);
+const pomodoroTableBody = document.querySelector(".js-task-table-body");
 
 function renderTasks() {
   pomodoroTableBody.innerHTML = tasks
-    .map(
-      (
-        {
-          taskName,
-          pomodoroDone,
-          pomodoroCount,
-          finished,
-        },
-        id
-      ) => {
-        return `
+    .map(({ taskName, pomodoroDone, pomodoroCount, finished }, id) => {
+      return `
           <tr>
             <!-- TASK NAME -->
             <td>
@@ -63,13 +50,14 @@ function renderTasks() {
             <!-- CONTROLS -->
             <td>
               <div class="action-buttons">
-                ${finished
-            ? `
+                ${
+                  finished
+                    ? `
                       <span class="finished">
                         Finished
                       </span>
                     `
-            : `
+                    : `
                       <button
                         class="js-task-done"
                         data-id="${id}"
@@ -84,7 +72,7 @@ function renderTasks() {
                         Increase Pomodoro Count
                       </button>
                     `
-          }
+                }
 
                 <button
                   class="js-delete-task"
@@ -96,21 +84,16 @@ function renderTasks() {
             </td>
           </tr>
         `;
-      }
-    )
+    })
     .join("");
 }
 
 const addTask = (event) => {
   event.preventDefault();
 
-  const taskNameInput = document.querySelector(
-    ".js-task-name"
-  );
+  const taskNameInput = document.querySelector(".js-task-name");
 
-  const pomodoroCountInput = document.querySelector(
-    ".js-pomodoro-count"
-  );
+  const pomodoroCountInput = document.querySelector(".js-pomodoro-count");
 
   if (!taskNameInput || !pomodoroCountInput) {
     return;
@@ -118,9 +101,7 @@ const addTask = (event) => {
 
   const taskName = taskNameInput.value;
 
-  const pomodoroCount = Number(
-    pomodoroCountInput.value
-  );
+  const pomodoroCount = Number(pomodoroCountInput.value);
 
   const newTask = {
     taskName,
@@ -155,22 +136,15 @@ function handleTaskButtonClick(event) {
 
   if (event.target.matches(".js-task-done")) {
     finishTask(taskId);
-  } else if (
-    event.target.matches(".js-increase-pomodoro")
-  ) {
+  } else if (event.target.matches(".js-increase-pomodoro")) {
     increasePomodoro(taskId);
-  } else if (
-    event.target.matches(".js-delete-task")
-  ) {
+  } else if (event.target.matches(".js-delete-task")) {
     deleteTask(taskId);
   }
 
   renderTasks();
 }
 
-pomodoroTableBody.addEventListener(
-  "click",
-  handleTaskButtonClick
-);
+pomodoroTableBody.addEventListener("click", handleTaskButtonClick);
 
 renderTasks();
