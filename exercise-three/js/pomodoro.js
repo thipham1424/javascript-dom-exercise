@@ -136,18 +136,16 @@ function deleteTask(taskId) {
 }
 
 function handleTaskButtonClick(event) {
-  const classList = event.target.className;
-
   const taskId = event.target.dataset.id;
 
-  if (classList.includes("js-task-done")) {
+  if (event.target.matches(".js-task-done")) {
     finishTask(taskId);
   } else if (
-    classList.includes("js-increase-pomodoro")
+    event.target.matches(".js-increase-pomodoro")
   ) {
     increasePomodoro(taskId);
   } else if (
-    classList.includes("js-delete-task")
+    event.target.matches(".js-delete-task")
   ) {
     deleteTask(taskId);
   }
