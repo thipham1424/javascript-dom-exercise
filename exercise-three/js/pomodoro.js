@@ -25,7 +25,9 @@ const tasks = [
   },
 ];
 
-const pomodoroForm = document.querySelector(".js-add-task");
+const pomodoroForm = document.querySelector(
+  ".js-add-task"
+);
 
 const pomodoroTableBody = document.querySelector(
   ".js-task-table-body"
@@ -99,16 +101,25 @@ function renderTasks() {
     .join("");
 }
 
-
 const addTask = (event) => {
   event.preventDefault();
 
-  const taskName = document.querySelector(
+  const taskNameInput = document.querySelector(
     ".js-task-name"
-  ).value;
+  );
+
+  const pomodoroCountInput = document.querySelector(
+    ".js-pomodoro-count"
+  );
+
+  if (!taskNameInput || !pomodoroCountInput) {
+    return;
+  }
+
+  const taskName = taskNameInput.value;
 
   const pomodoroCount = Number(
-    document.querySelector(".js-pomodoro-count").value
+    pomodoroCountInput.value
   );
 
   const newTask = {
