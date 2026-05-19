@@ -29,7 +29,7 @@ const pomodoroForm = document.querySelector(".js-add-task");
 
 const pomodoroTableBody = document.querySelector(".js-task-table-body");
 
-function renderTasks() {
+const renderTasks = () => {
   pomodoroTableBody.innerHTML = tasks
     .map(({ taskName, pomodoroDone, pomodoroCount, finished }, id) => {
       return `
@@ -119,19 +119,19 @@ const addTask = (event) => {
 
 pomodoroForm.addEventListener("submit", addTask);
 
-function finishTask(taskId) {
+const finishTask = (taskId) => {
   tasks[taskId].finished = true;
 }
 
-function increasePomodoro(taskId) {
+const increasePomodoro = (taskId) => {
   tasks[taskId].pomodoroDone++;
 }
 
-function deleteTask(taskId) {
+const deleteTask = (taskId) => {
   tasks.splice(taskId, 1);
 }
 
-function handleTaskButtonClick(event) {
+const  handleTaskButtonClick=event => {
   const taskId = event.target.dataset.id;
 
   if (event.target.matches(".js-task-done")) {
