@@ -86,16 +86,20 @@ const renderTasks = () => {
         `;
     })
     .join("");
-}
+};
 
 const addTask = (event) => {
   event.preventDefault();
 
   const taskNameInput = document.querySelector(".js-task-name");
 
+  if (!taskNameInput) {
+    return;
+  }
+
   const pomodoroCountInput = document.querySelector(".js-pomodoro-count");
 
-  if (!taskNameInput || !pomodoroCountInput) {
+  if (!pomodoroCountInput) {
     return;
   }
 
@@ -117,22 +121,24 @@ const addTask = (event) => {
   pomodoroForm.reset();
 };
 
-pomodoroForm.addEventListener("submit", addTask);
+if (pomodoroForm) {
+  pomodoroForm.addEventListener("submit", addTask);
+}
 
 const finishTask = (taskId) => {
   tasks[taskId].finished = true;
-}
+};
 
 const increasePomodoro = (taskId) => {
   tasks[taskId].pomodoroDone++;
-}
+};
 
 const deleteTask = (taskId) => {
   tasks.splice(taskId, 1);
-}
+};
 
-const  handleTaskButtonClick=event => {
-  const taskId = event.target.dataset.id;
+const handleTaskButtonClick = (event) => {
+  const taskId = Number(event.target.dataset.id);
 
   if (event.target.matches(".js-task-done")) {
     finishTask(taskId);
@@ -143,8 +149,13 @@ const  handleTaskButtonClick=event => {
   }
 
   renderTasks();
-}
+};
 
-pomodoroTableBody.addEventListener("click", handleTaskButtonClick);
+if (pomodoroTableBody) {
+  pomodoroTableBody.addEventListener(
+    "click",
+    handleTaskButtonClick
+  );
+}
 
 renderTasks();
