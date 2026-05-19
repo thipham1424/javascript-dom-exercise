@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Times New Roman, serif;
+  background: white;
+  padding: 1.2rem;
+}
+
+.container {
+  max-width: 45%;
+  border: 0.2rem solid black;
+  padding: 1rem 1.5rem 2rem;
+  background: white;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.6rem;
+  gap: 5rem;
+}
+
+label {
+  width: 8rem;
+  font-size: 1.8rem;
+}
+
+.form-input {
+  flex: 1;
+}
+
+input {
+  width: 28rem;
+  height: 3rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.5rem;
+}
+
+.error {
+  color: red;
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+  text-decoration: underline;
+  margin-left: 13rem;
+}
+
+.button-group {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.4rem 1rem;
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.6rem;
+  font-size: 1.6rem;
+}
+
+.user-info {
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
