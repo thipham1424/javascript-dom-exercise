@@ -5,21 +5,18 @@ let tasks = [
     pomodoroCount: 4,
     finished: true,
   },
-
   {
     taskName: "Write pomodoro article",
     pomodoroDone: 4,
     pomodoroCount: 4,
     finished: false,
   },
-
   {
     taskName: "Create thumbnail",
     pomodoroDone: 1,
     pomodoroCount: 1,
     finished: false,
   },
-
   {
     taskName: "Proof-read article",
     pomodoroDone: 1,
@@ -30,7 +27,9 @@ let tasks = [
 
 const pomodoroForm = document.querySelector(".js-add-task");
 
-const pomodoroTableBody = document.querySelector(".js-task-table-body");
+const pomodoroTableBody = document.querySelector(
+  ".js-task-table-body"
+);
 
 function renderTasks() {
   pomodoroTableBody.innerHTML = tasks
@@ -100,9 +99,13 @@ function renderTasks() {
 function addTask(event) {
   event.preventDefault();
 
-  const taskName = document.querySelector(".js-task-name").value;
+  const taskName = document.querySelector(
+    ".js-task-name"
+  ).value;
 
-  const pomodoroCount = document.querySelector(".js-pomodoro-count").value;
+  const pomodoroCount = document.querySelector(
+    ".js-pomodoro-count"
+  ).value;
 
   const newTask = {
     taskName,
@@ -139,15 +142,22 @@ function handleTaskButtonClick(event) {
 
   if (classList.includes("js-task-done")) {
     finishTask(taskId);
-  } else if (classList.includes("js-increase-pomodoro")) {
+  } else if (
+    classList.includes("js-increase-pomodoro")
+  ) {
     increasePomodoro(taskId);
-  } else if (classList.includes("js-delete-task")) {
+  } else if (
+    classList.includes("js-delete-task")
+  ) {
     deleteTask(taskId);
   }
 
   renderTasks();
 }
 
-pomodoroTableBody.addEventListener("click", handleTaskButtonClick);
+pomodoroTableBody.addEventListener(
+  "click",
+  handleTaskButtonClick
+);
 
 renderTasks();
