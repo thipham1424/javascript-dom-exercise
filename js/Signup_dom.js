@@ -1,66 +1,35 @@
-const signupForm = document.querySelector(
-  ".js-signup-form"
-);
+const signupForm = document.querySelector(".js-signup-form");
 
-const emailInput = document.querySelector(
-  ".js-email"
-);
+const emailInput = document.querySelector(".js-email");
 
-const usernameInput = document.querySelector(
-  ".js-username"
-);
+const usernameInput = document.querySelector(".js-username");
 
-const passwordInput = document.querySelector(
-  ".js-password"
-);
+const passwordInput = document.querySelector(".js-password");
 
-const confirmPasswordInput = document.querySelector(
-  ".js-confirm-password"
-);
+const confirmPasswordInput = document.querySelector(".js-confirm-password");
 
-const emailError = document.querySelector(
-  ".js-email-error"
-);
+const emailError = document.querySelector(".js-email-error");
 
-const usernameError = document.querySelector(
-  ".js-username-error"
-);
+const usernameError = document.querySelector(".js-username-error");
 
-const passwordError = document.querySelector(
-  ".js-password-error"
-);
+const passwordError = document.querySelector(".js-password-error");
 
-const confirmError = document.querySelector(
-  ".js-confirm-error"
-);
+const confirmError = document.querySelector(".js-confirm-error");
 
 // Email format
-const emailRegex =
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Username:
-const usernameRegex =
-  /^\S(.*\S)?$/;
+const usernameRegex = /^\S(.*\S)?$/;
 
 // Password:
-const passwordRegex =
-  /^(?=.*[^A-Za-z]).{8,}$/;
+const passwordRegex = /^(?=.*[^A-Za-z]).{8,}$/;
 
-function validateInput(
-  inputElement,
-  errorElement,
-  regex,
-  errorMessage
-) {
+function validateInput(inputElement, errorElement, regex, errorMessage) {
   input.addEventListener("input", () => {
-
     const value = inputElement.value;
 
-    if (
-      value.trim() !== ""
-      &&
-      regex.test(value)
-    ) {
+    if (value.trim() !== "" && regex.test(value)) {
       errorElement.innerHTML = "";
     } else {
       errorElement.innerHTML = errorMessage;
@@ -69,34 +38,53 @@ function validateInput(
 }
 
 // EMAIL
-validateInput(emailInput, emailError, emailRegex, `
+validateInput(
+  emailInput,
+  emailError,
+  emailRegex,
+  `
   Email address empty or wrong format.
   example: usename.@somewhere.sth
-`);
+`,
+);
 
 // USERNAME
-validateInput(usernameInput, usernameError, usernameRegex, `
+validateInput(
+  usernameInput,
+  usernameError,
+  usernameRegex,
+  `
   Please enter the correct format
   for Username.
   (No leading or trailing spaces)
-`);
+`,
+);
 
 // PASSWORD
-validateInput(passwordInput, passwordError, passwordRegex, `
+validateInput(
+  passwordInput,
+  passwordError,
+  passwordRegex,
+  `
   Please enter the correct format
   for password.
   (8 characters at least one non-letter)
-`);
+`,
+);
 
 // CONFIRM PASSWORD
-validateInput(confirmPasswordInput, confirmError, passwordRegex, `
+validateInput(
+  confirmPasswordInput,
+  confirmError,
+  passwordRegex,
+  `
   Please enter the correct format
   for confirm password.
   (8 characters at least one non-letter)
-`);
+`,
+);
 
 function validateForm(event) {
-
   event.preventDefault();
 
   const email = emailInput.value;
@@ -105,13 +93,9 @@ function validateForm(event) {
 
   const password = passwordInput.value;
 
-  const confirmPassword =
-    confirmPasswordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
 
-  if (
-    confirmPassword !== password
-  ) {
-
+  if (confirmPassword !== password) {
     confirmError.innerHTML = `
       Make sure password and
       confirm passwords match
@@ -120,17 +104,13 @@ function validateForm(event) {
     return;
   }
 
-  // Clear confirm error
-  confirmError.innerHTML = "";
+  const isEmailValid = emailRegex.test(email);
 
-  if (
-    emailError.innerHTML !== ""
-    ||
-    usernameError.innerHTML !== ""
-    ||
-    passwordError.innerHTML !== ""
-  ) {
+  const isUsernameValid = usernameRegex.test(username);
 
+  const isPasswordValid = passwordRegex.test(password);
+
+  if (!isEmailValid || !isUsernameValid || !isPasswordValid) {
     return;
   }
 
@@ -160,51 +140,38 @@ function validateForm(event) {
     </div>
   `;
 
-  document.querySelector(
-    ".js-user-info"
-  ).innerHTML = resultHTML;
+  document.querySelector(".js-user-info").innerHTML = resultHTML;
 }
 
-signupForm.addEventListener(
-  "submit",
-  validateForm
-);
+signupForm.addEventListener("submit", validateForm);
 
-signupForm.addEventListener(
-  "reset",
-  function () {
-
-    // Delay để browser reset input trước
-    setTimeout(function () {
-
-      emailError.innerHTML = `
+signupForm.addEventListener("reset", function () {
+  // Delay để browser reset input trước
+  setTimeout(function () {
+    emailError.innerHTML = `
         Email address empty or wrong format.
         example: username@somewhere.sth
       `;
 
-      usernameError.innerHTML = `
+    usernameError.innerHTML = `
         Please enter the correct format
         for Username.
         (No leading or trailing spaces)
       `;
 
-      passwordError.innerHTML = `
+    passwordError.innerHTML = `
         Please enter the correct format
         for password.
         (8 characters at least one non-letter)
       `;
 
-      confirmError.innerHTML = `
+    confirmError.innerHTML = `
         Please enter the correct format
         for confirm password.
         (8 characters at least one non-letter)
       `;
 
-      // Clear user info
-      document.querySelector(
-        ".js-user-info"
-      ).innerHTML = "";
-
-    }, 0);
-  }
-);
+    // Clear user info
+    document.querySelector(".js-user-info").innerHTML = "";
+  }, 0);
+});
