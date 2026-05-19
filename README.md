@@ -22,6 +22,12 @@ The exercises focus on selecting elements, modifying content dynamically, handli
 
 ```bash
 javascript-dom-exercise/
+├── exercise-three
+  ├── css/
+      ├── style.css
+  ├── js/
+      ├── pomodoro.js
+  ├── index.html
 ├── README.md
 ```
 
