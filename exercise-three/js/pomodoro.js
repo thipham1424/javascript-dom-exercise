@@ -45,7 +45,6 @@ function renderTasks() {
       ) => {
         return `
           <tr>
-
             <!-- TASK NAME -->
             <td>
               ${taskName}
@@ -61,17 +60,14 @@ function renderTasks() {
 
             <!-- CONTROLS -->
             <td>
-
               <div class="action-buttons">
-
-                ${
-                  finished
-                    ? `
+                ${finished
+            ? `
                       <span class="finished">
                         Finished
                       </span>
                     `
-                    : `
+            : `
                       <button
                         class="js-task-done"
                         data-id="${id}"
@@ -86,7 +82,7 @@ function renderTasks() {
                         Increase Pomodoro Count
                       </button>
                     `
-                }
+          }
 
                 <button
                   class="js-delete-task"
@@ -94,11 +90,8 @@ function renderTasks() {
                 >
                   Delete Task
                 </button>
-
               </div>
-
             </td>
-
           </tr>
         `;
       }
@@ -107,7 +100,7 @@ function renderTasks() {
 }
 
 
-function addTask(event) {
+const addTask = (event) => {
   event.preventDefault();
 
   const taskName = document.querySelector(
@@ -130,7 +123,7 @@ function addTask(event) {
   renderTasks();
 
   pomodoroForm.reset();
-}
+};
 
 pomodoroForm.addEventListener("submit", addTask);
 
