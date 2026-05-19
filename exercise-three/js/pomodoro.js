@@ -33,68 +33,79 @@ const pomodoroTableBody = document.querySelector(
 
 function renderTasks() {
   pomodoroTableBody.innerHTML = tasks
-    .map((task, id) => {
-      return `
-        <tr>
+    .map(
+      (
+        {
+          taskName,
+          pomodoroDone,
+          pomodoroCount,
+          finished,
+        },
+        id
+      ) => {
+        return `
+          <tr>
 
-          <!-- TASK NAME -->
-          <td>
-            ${task.taskName}
-          </td>
+            <!-- TASK NAME -->
+            <td>
+              ${taskName}
+            </td>
 
-          <!-- STATUS -->
-          <td>
-            ${task.pomodoroDone}
-            /
-            ${task.pomodoroCount}
-            pomodori
-          </td>
+            <!-- STATUS -->
+            <td>
+              ${pomodoroDone}
+              /
+              ${pomodoroCount}
+              pomodori
+            </td>
 
-          <!-- CONTROLS -->
-          <td>
+            <!-- CONTROLS -->
+            <td>
 
-            <div class="action-buttons">
+              <div class="action-buttons">
 
-              ${
-                task.finished
-                  ? `
-                    <span class="finished">
-                      Finished
-                    </span>
-                  `
-                  : `
-                    <button
-                      class="js-task-done"
-                      data-id="${id}"
-                    >
-                      Done
-                    </button>
+                ${
+                  finished
+                    ? `
+                      <span class="finished">
+                        Finished
+                      </span>
+                    `
+                    : `
+                      <button
+                        class="js-task-done"
+                        data-id="${id}"
+                      >
+                        Done
+                      </button>
 
-                    <button
-                      class="js-increase-pomodoro"
-                      data-id="${id}"
-                    >
-                      Increase Pomodoro Count
-                    </button>
-                  `
-              }
+                      <button
+                        class="js-increase-pomodoro"
+                        data-id="${id}"
+                      >
+                        Increase Pomodoro Count
+                      </button>
+                    `
+                }
 
-              <button
-                class="js-delete-task"
-                data-id="${id}"
-              >
-                Delete Task
-              </button>
+                <button
+                  class="js-delete-task"
+                  data-id="${id}"
+                >
+                  Delete Task
+                </button>
 
-            </div>
+              </div>
 
-          </td>
+            </td>
 
-        </tr>
-      `;
-    })
+          </tr>
+        `;
+      }
+    )
     .join("");
 }
+
 
 function addTask(event) {
   event.preventDefault();
