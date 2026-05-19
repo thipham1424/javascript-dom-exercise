@@ -103,9 +103,9 @@ function addTask(event) {
     ".js-task-name"
   ).value;
 
-  const pomodoroCount = document.querySelector(
-    ".js-pomodoro-count"
-  ).value;
+  const pomodoroCount = Number(
+    document.querySelector(".js-pomodoro-count").value
+  );
 
   const newTask = {
     taskName,
