@@ -29,6 +29,12 @@ javascript-dom-exercise/
 ├── styles
     ├── style.css
 ├── index.html
+├── exercise-three
+  ├── css/
+      ├── style.css
+  ├── js/
+      ├── pomodoro.js
+  ├── index.html
 ├── README.md
 ```
 
