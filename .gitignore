@@ -2,4 +2,7 @@
 node_modules/
 
 # TypeScript build output
-built/
+**/built/
+
+# Source maps
+*.js.map
