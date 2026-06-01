@@ -21,21 +21,6 @@
       </button>
     </form>
 
-    <script>
-      const getOptionBtn = document.getElementById("getOptionBtn");
-      getOptionBtn.addEventListener("click", countItems);
-
-      function countItems() {
-        const options = document.getElementById("colorSelect");
-        const count = options.length;
-
-        if (count > 0) {
-          const items = Array.from(options).map((option) => option.text);
-          alert(`Number of items: ${count}\nItems: ${items.join(", ")}`);
-        } else {
-          alert("The list is empty");
-        }
-      }
-    </script>
+    <script src="./built/count-dropdown-items.js"></script>
   </body>
 </html>
