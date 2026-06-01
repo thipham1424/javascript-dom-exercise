@@ -9,6 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
   btn.addEventListener("click", showLinkInfo);
 });
 
+interface LinkInfo {
+  href: string;
+  hreflang: string;
+  rel: string;
+  target: string;
+  type: string;
+}
+
 function showLinkInfo(): void {
   const link = document.querySelector<HTMLAnchorElement>("#w3r");
 
@@ -17,7 +25,7 @@ function showLinkInfo(): void {
     return;
   }
 
-  const info = {
+  const info: LinkInfo = {
     href: link.href,
     hreflang: link.hreflang,
     rel: link.rel,
