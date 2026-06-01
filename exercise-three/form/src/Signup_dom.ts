@@ -1,77 +1,73 @@
-function getElement<T extends Element>(
-  selector: string,
-  elementType: { new (): T },
-  errorMessage: string,
-): T {
-  const element = document.querySelector(selector);
+// Elements
+const signupForm =
+  document.querySelector<HTMLFormElement>(".js-signup-form");
 
-  if (!(element instanceof elementType)) {
-    throw new Error(errorMessage);
-  }
-
-  return element;
+if (!signupForm) {
+  throw new Error("Signup form not found");
 }
 
-// Elements
-const signupForm = getElement(
-  ".js-signup-form",
-  HTMLFormElement,
-  "Signup form not found",
-);
+const emailInput =
+  document.querySelector<HTMLInputElement>(".js-email");
 
-const emailInput = getElement(
-  ".js-email",
-  HTMLInputElement,
-  "Email input not found",
-);
+if (!emailInput) {
+  throw new Error("Email input not found");
+}
 
-const usernameInput = getElement(
-  ".js-username",
-  HTMLInputElement,
-  "Username input not found",
-);
+const usernameInput =
+  document.querySelector<HTMLInputElement>(".js-username");
 
-const passwordInput = getElement(
-  ".js-password",
-  HTMLInputElement,
-  "Password input not found",
-);
+if (!usernameInput) {
+  throw new Error("Username input not found");
+}
 
-const confirmPasswordInput = getElement(
-  ".js-confirm-password",
-  HTMLInputElement,
-  "Confirm password input not found",
-);
+const passwordInput =
+  document.querySelector<HTMLInputElement>(".js-password");
 
-const emailError = getElement(
-  ".js-email-error",
-  HTMLElement,
-  "Email error element not found",
-);
+if (!passwordInput) {
+  throw new Error("Password input not found");
+}
 
-const usernameError = getElement(
-  ".js-username-error",
-  HTMLElement,
-  "Username error element not found",
-);
+const confirmPasswordInput =
+  document.querySelector<HTMLInputElement>(".js-confirm-password");
 
-const passwordError = getElement(
-  ".js-password-error",
-  HTMLElement,
-  "Password error element not found",
-);
+if (!confirmPasswordInput) {
+  throw new Error("Confirm password input not found");
+}
 
-const confirmError = getElement(
-  ".js-confirm-error",
-  HTMLElement,
-  "Confirm error element not found",
-);
+const emailError =
+  document.querySelector<HTMLElement>(".js-email-error");
 
-const userInfo = getElement(
-  ".js-user-info",
-  HTMLElement,
-  "User info element not found",
-);
+if (!emailError) {
+  throw new Error("Email error element not found");
+}
+
+const usernameError =
+  document.querySelector<HTMLElement>(".js-username-error");
+
+if (!usernameError) {
+  throw new Error("Username error element not found");
+}
+
+const passwordError =
+  document.querySelector<HTMLElement>(".js-password-error");
+
+if (!passwordError) {
+  throw new Error("Password error element not found");
+}
+
+const confirmError =
+  document.querySelector<HTMLElement>(".js-confirm-error");
+
+if (!confirmError) {
+  throw new Error("Confirm error element not found");
+}
+
+const userInfo =
+  document.querySelector<HTMLElement>(".js-user-info");
+
+if (!userInfo) {
+  throw new Error("User info element not found");
+}
 
 // Regex
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -97,9 +93,10 @@ function validateInput(
   input.addEventListener("input", () => {
     const value = input.value.trim();
 
-    errorEl.textContent = !value || !regex.test(value)
-      ? message
-      : "";
+    errorEl.textContent =
+      !value || !regex.test(value)
+        ? message
+        : "";
   });
 }
 
