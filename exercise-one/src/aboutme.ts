@@ -1,6 +1,12 @@
+type ProfileData = {
+  nickname: string;
+  favorites: string;
+  hometown: string;
+};
+
 document.body.style.fontFamily = "Arial, sans-serif";
 
-const profileData = {
+const profileData: ProfileData = {
   nickname: "Thi Pham",
   favorites: "playing guitar, watching films, and listening to music",
   hometown: "Tam Ky ward, Da Nang city, Vietnam",
