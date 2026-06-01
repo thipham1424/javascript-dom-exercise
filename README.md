@@ -47,6 +47,7 @@ javascript-dom-exercise/
         ├── remove-dropdown-item.html
         ├── sphere-volumn-calculator.html
         ├── style-paragraph.html
+    ├── tsconfig.json
 ├── exercise-one/
     ├── assets/
     ├── js/
