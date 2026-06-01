@@ -39,11 +39,12 @@ javascript-dom-exercise/
       ├── index.html
 ├── exercise-two/
     ├── src/
+        ├── count-dropdown-items.ts
+    ├── count-dropdown-items.html
         ├── add-table-rows.ts
     ├── add-table-rows.html
     ├── js/
         ├── add-table-rows.html
-        ├── count-dropdown-items.html
         ├── get-form-values.html
         ├── get-link-attributes.html
         ├── paragraph-background-color.html
