@@ -38,6 +38,9 @@ javascript-dom-exercise/
           ├── pomodoro.js
       ├── index.html
 ├── exercise-two/
+    ├── src
+        ├── get-link-attributes.ts
+    ├── get-link-attributes.ts
     ├── js/
         ├── add-table-rows.html
         ├── count-dropdown-items.html
