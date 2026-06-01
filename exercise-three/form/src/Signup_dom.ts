@@ -1,58 +1,75 @@
 function getElement<T extends Element>(
   selector: string,
+  elementType: { new (): T },
   errorMessage: string,
 ): T {
   const element = document.querySelector(selector);
 
-  if (!(element)) {
+  if (!(element instanceof elementType)) {
     throw new Error(errorMessage);
   }
 
-  return element as T;
+  return element;
 }
 
 // Elements
-const signupForm = getElement<HTMLFormElement>(
+const signupForm = getElement(
   ".js-signup-form",
+  HTMLFormElement,
   "Signup form not found",
 );
 
-const emailInput = getElement<HTMLInputElement>(
+const emailInput = getElement(
   ".js-email",
+  HTMLInputElement,
   "Email input not found",
 );
-const usernameInput = getElement<HTMLInputElement>(
+
+const usernameInput = getElement(
   ".js-username",
+  HTMLInputElement,
   "Username input not found",
 );
-const passwordInput = getElement<HTMLInputElement>(
+
+const passwordInput = getElement(
   ".js-password",
+  HTMLInputElement,
   "Password input not found",
 );
-const confirmPasswordInput = getElement<HTMLInputElement>(
+
+const confirmPasswordInput = getElement(
   ".js-confirm-password",
+  HTMLInputElement,
   "Confirm password input not found",
 );
 
-const emailError = getElement<HTMLElement>(
+const emailError = getElement(
   ".js-email-error",
+  HTMLElement,
   "Email error element not found",
 );
-const usernameError = getElement<HTMLElement>(
+
+const usernameError = getElement(
   ".js-username-error",
+  HTMLElement,
   "Username error element not found",
 );
-const passwordError = getElement<HTMLElement>(
+
+const passwordError = getElement(
   ".js-password-error",
+  HTMLElement,
   "Password error element not found",
 );
-const confirmError = getElement<HTMLElement>(
+
+const confirmError = getElement(
   ".js-confirm-error",
+  HTMLElement,
   "Confirm error element not found",
 );
 
-const userInfo = getElement<HTMLElement>(
+const userInfo = getElement(
   ".js-user-info",
+  HTMLElement,
   "User info element not found",
 );
 
@@ -68,7 +85,7 @@ const ERROR_MESSAGES = {
   PASSWORD: "Password must be at least 8 characters and contain a non-letter",
   CONFIRM_REQUIRED: "Confirm password is required",
   CONFIRM_MISMATCH: "Passwords do not match",
-};
+} as const;
 
 // Validation helpers
 function validateInput(
@@ -80,24 +97,42 @@ function validateInput(
   input.addEventListener("input", () => {
     const value = input.value.trim();
 
-    errorEl.textContent = value === "" || !regex.test(value) ? message : "";
+    errorEl.textContent = !value || !regex.test(value)
+      ? message
+      : "";
   });
 }
 
-function validatePasswordMatch(password: string, confirm: string): string {
-  if (confirm === "") return ERROR_MESSAGES.CONFIRM_REQUIRED;
-  if (confirm !== password) return ERROR_MESSAGES.CONFIRM_MISMATCH;
+function validatePasswordMatch(
+  password: string,
+  confirmPassword: string,
+): string {
+  if (!confirmPassword) {
+    return ERROR_MESSAGES.CONFIRM_REQUIRED;
+  }
+
+  if (password !== confirmPassword) {
+    return ERROR_MESSAGES.CONFIRM_MISMATCH;
+  }
+
   return "";
 }
 
-// Apply live validation
-validateInput(emailInput, emailError, EMAIL_REGEX, ERROR_MESSAGES.EMAIL);
+// Live validation
+validateInput(
+  emailInput,
+  emailError,
+  EMAIL_REGEX,
+  ERROR_MESSAGES.EMAIL,
+);
+
 validateInput(
   usernameInput,
   usernameError,
   USERNAME_REGEX,
   ERROR_MESSAGES.USERNAME,
 );
+
 validateInput(
   passwordInput,
   passwordError,
@@ -105,7 +140,6 @@ validateInput(
   ERROR_MESSAGES.PASSWORD,
 );
 
-// Confirm password live check
 confirmPasswordInput.addEventListener("input", () => {
   confirmError.textContent = validatePasswordMatch(
     passwordInput.value.trim(),
@@ -113,7 +147,7 @@ confirmPasswordInput.addEventListener("input", () => {
   );
 });
 
-// Submit handler
+// Submit
 function validateForm(event: SubmitEvent): void {
   event.preventDefault();
 
@@ -122,18 +156,22 @@ function validateForm(event: SubmitEvent): void {
   const password = passwordInput.value.trim();
   const confirmPassword = confirmPasswordInput.value.trim();
 
-  const confirmErrorMsg = validatePasswordMatch(password, confirmPassword);
-  if (confirmErrorMsg) {
-    confirmError.textContent = confirmErrorMsg;
-    return;
-  }
+  const confirmMessage = validatePasswordMatch(
+    password,
+    confirmPassword,
+  );
+
+  confirmError.textContent = confirmMessage;
 
   const isValid =
     EMAIL_REGEX.test(email) &&
     USERNAME_REGEX.test(username) &&
-    PASSWORD_REGEX.test(password);
+    PASSWORD_REGEX.test(password) &&
+    !confirmMessage;
 
-  if (!isValid) return;
+  if (!isValid) {
+    return;
+  }
 
   userInfo.innerHTML = `
     <div class="user-info">
@@ -147,7 +185,7 @@ function validateForm(event: SubmitEvent): void {
 
 signupForm.addEventListener("submit", validateForm);
 
-// Reset handler
+// Reset
 signupForm.addEventListener("reset", () => {
   requestAnimationFrame(() => {
     emailError.textContent = ERROR_MESSAGES.EMAIL;
