@@ -38,9 +38,11 @@ javascript-dom-exercise/
           ├── pomodoro.js
       ├── index.html
 ├── exercise-two/
+    ├── src/
+        ├── count-dropdown-items.ts
+    ├── count-dropdown-items.html
     ├── js/
         ├── add-table-rows.html
-        ├── count-dropdown-items.html
         ├── get-form-values.html
         ├── get-link-attributes.html
         ├── paragraph-background-color.html
