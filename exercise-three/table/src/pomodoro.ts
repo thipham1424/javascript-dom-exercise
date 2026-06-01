@@ -1,9 +1,9 @@
-type Task = {
+interface Task {
   taskName: string;
   pomodoroDone: number;
   pomodoroCount: number;
   finished: boolean;
-};
+}
 
 const tasks: Task[] = [
   {
