@@ -24,19 +24,21 @@ The exercises focus on selecting elements, modifying content dynamically, handli
 javascript-dom-exercise/
 ├── exercise-three
     ├── form
-      ├── js/
-        ├── Signup_dom.js
+      ├── src/
+        ├── Signup_dom.ts
       ├── pages
         ├── Signup_dom.html
       ├── styles
         ├── style.css
       ├── index.html
+      ├── tsconfig.json
     ├── table
       ├── css/
           ├── style.css
-      ├── js/
+      ├── ts/
           ├── pomodoro.js
       ├── index.html
+      ├── tsconfig.json
 ├── exercise-two/
     ├── src/
         ├── add-table-rows.html
