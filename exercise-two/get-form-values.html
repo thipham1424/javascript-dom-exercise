@@ -15,18 +15,6 @@
       <input type="submit" value="Submit">
     </form>
 
-    <script>
-      const form = document.getElementById("form1");
-
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        for (let i = 0; i < form.elements.length; i++) {
-          if (form.elements[i].type !== "submit") {
-            console.log(form.elements[i].value);
-          }
-        }
-      });
-    </script>
+    <script src="./built/get-form-values.js" defer></script>
   </body>
 </html>

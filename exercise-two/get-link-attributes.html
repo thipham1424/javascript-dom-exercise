@@ -17,18 +17,6 @@
       >
     </p>
     <button type="button" id="btn">Click here to get attributes value</button>
-    <script>
-      const btn = document.getElementById("btn");
-      const link = document.getElementById("w3r");
-
-      btn.addEventListener("click", () => {
-        if (!link) return;
-        alert(link.getAttribute("href"));
-        alert(link.getAttribute("hreflang"));
-        alert(link.getAttribute("rel"));
-        alert(link.getAttribute("target"));
-        alert(link.getAttribute("type"));
-      });
-    </script>
+    <script src="./built/get-link-attributes.js" defer></script>
   </body>
 </html>

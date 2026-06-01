@@ -38,15 +38,24 @@ javascript-dom-exercise/
           ├── pomodoro.js
       ├── index.html
 ├── exercise-two/
-    ├── js/
+    ├── src/
         ├── add-table-rows.html
         ├── count-dropdown-items.html
         ├── get-form-values.html
         ├── get-link-attributes.html
-        ├── paragraph-background-color.html
         ├── remove-dropdown-item.html
         ├── sphere-volumn-calculator.html
         ├── style-paragraph.html
+        ├── style-paragraph.html
+    ├── add-table-rows.html
+    ├── count-dropdown-items.html
+    ├── get-form-values.html
+    ├── get-link-attributes.html
+    ├── paragraph-background-color.html
+    ├── remove-dropdown-item.html
+    ├── sphere-volumn-calculator.html
+    ├── style-paragraph.html
+    ├── tsconfig.json
 ├── exercise-one/
     ├── assets/
     ├── src/
