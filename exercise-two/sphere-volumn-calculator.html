@@ -15,21 +15,6 @@
       <button type="submit" value="Calculate" id="submit">Calculate</button>
     </form>
 
-    <script>
-      const form = document.getElementById("MyForm");
-      form.addEventListener("submit", function () {
-        event.preventDefault();
-        const radiusInput = document.getElementById("radius");
-        const volumeInput = document.getElementById("volume");
-        const radius = parseFloat(radiusInput.value);
-
-        if (!isNaN(radius) && radius > 0) {
-          const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
-          volumeInput.value = volume.toFixed(4);
-        } else {
-          alert("Invalid radius");
-        }
-      });
-    </script>
+    <script src="./built/sphere-volumn-calculator.js" defer></script>
   </body>
 </html>
