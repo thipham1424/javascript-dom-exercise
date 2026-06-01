@@ -49,9 +49,6 @@ javascript-dom-exercise/
         ├── style-paragraph.html
 ├── exercise-one/
     ├── assets/
-    ├── built/
-        ├── aboutme.js
-        ├── aboutme.js.map
     ├── src/
         ├── aboutme.ts
     ├── aboutme.html
