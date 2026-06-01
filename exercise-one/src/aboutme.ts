@@ -1,8 +1,8 @@
-type ProfileData = {
+interface ProfileData {
   nickname: string;
   favorites: string;
   hometown: string;
-};
+}
 
 document.body.style.fontFamily = "Arial, sans-serif";
 
