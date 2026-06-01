@@ -41,6 +41,8 @@ javascript-dom-exercise/
     ├── src/
         ├── count-dropdown-items.ts
     ├── count-dropdown-items.html
+        ├── add-table-rows.ts
+    ├── add-table-rows.html
     ├── js/
         ├── add-table-rows.html
         ├── get-form-values.html
