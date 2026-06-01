@@ -38,15 +38,9 @@ javascript-dom-exercise/
           ├── pomodoro.js
       ├── index.html
 ├── exercise-two/
-    ├── js/
-        ├── add-table-rows.html
-        ├── count-dropdown-items.html
-        ├── get-form-values.html
-        ├── get-link-attributes.html
-        ├── paragraph-background-color.html
-        ├── remove-dropdown-item.html
-        ├── sphere-volumn-calculator.html
-        ├── style-paragraph.html
+    ├── src/
+        ├── style-paragraph.ts
+    ├── style-paragraph.html
     ├── tsconfig.json
 ├── exercise-one/
     ├── assets/
