@@ -39,6 +39,8 @@ javascript-dom-exercise/
       ├── index.html
 ├── exercise-two/
     ├── src/
+        ├── style-paragraph.ts
+    ├── style-paragraph.html
         ├── get-form-values.ts
     ├── get-form-values.ts
     ├── js/
