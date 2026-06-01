@@ -49,8 +49,10 @@ javascript-dom-exercise/
         ├── style-paragraph.html
 ├── exercise-one/
     ├── assets/
-    ├── js/
-        ├── index.html
+    ├── src/
+        ├── aboutme.ts
+    ├── aboutme.html
+    ├── tsconfig.json
 ├── README.md
 ```
 
