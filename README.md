@@ -41,6 +41,33 @@ javascript-dom-exercise/
     ├── src/
         ├── style-paragraph.ts
     ├── style-paragraph.html
+        ├── get-form-values.ts
+    ├── get-form-values.ts
+    ├── js/
+        ├── remove-dropdown-item.ts
+    ├── remove-dropdown-item.html
+    ├── js/
+        ├── sphere-volumn-calculator.ts
+    ├── sphere-volumn-calculator.html
+    ├── js/
+        ├── add-table-rows.html
+        ├── count-dropdown-items.html
+    ├── src
+        ├── get-link-attributes.ts
+    ├── get-link-attributes.ts
+    ├── src/
+        ├── count-dropdown-items.ts
+    ├── count-dropdown-items.html
+        ├── add-table-rows.ts
+    ├── add-table-rows.html
+    ├── js/
+        ├── add-table-rows.html
+        ├── get-form-values.html
+        ├── get-link-attributes.html
+        ├── paragraph-background-color.html
+        ├── remove-dropdown-item.html
+        ├── sphere-volumn-calculator.html
+        ├── style-paragraph.html
     ├── tsconfig.json
 ├── exercise-one/
     ├── assets/
