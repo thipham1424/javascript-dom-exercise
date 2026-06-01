@@ -125,7 +125,8 @@ function deleteTask(taskId: number): void {
 }
 
 function handleTaskButtonClick(event: Event): void {
-  const target = event.target as HTMLElement;
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
   const taskId = Number(target.dataset.id);
 
   if (!Number.isFinite(taskId)) return;
