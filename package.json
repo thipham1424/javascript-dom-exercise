@@ -1,0 +1,23 @@
+{
+  "name": "javascript-dom-exercise",
+  "version": "1.0.0",
+  "description": "JavaScript DOM Exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thipham1424/javascript-dom-exercise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thipham1424/javascript-dom-exercise/issues"
+  },
+  "homepage": "https://github.com/thipham1424/javascript-dom-exercise#readme",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
