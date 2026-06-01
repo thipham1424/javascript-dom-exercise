@@ -42,6 +42,9 @@ javascript-dom-exercise/
         ├── get-form-values.ts
     ├── get-form-values.ts
     ├── js/
+        ├── remove-dropdown-item.ts
+    ├── remove-dropdown-item.html
+    ├── js/
         ├── add-table-rows.html
         ├── count-dropdown-items.html
     ├── src
