@@ -34,9 +34,10 @@ javascript-dom-exercise/
     ├── table
       ├── css/
           ├── style.css
-      ├── js/
+      ├── ts/
           ├── pomodoro.js
       ├── index.html
+      ├── tsconfig.json
 ├── exercise-two/
     ├── js/
         ├── add-table-rows.html
