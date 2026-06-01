@@ -4,11 +4,11 @@ function getElement<T extends Element>(
 ): T {
   const element = document.querySelector(selector);
 
-  if (!(element instanceof HTMLElement)) {
+  if (!(element)) {
     throw new Error(errorMessage);
   }
 
-  return element as unknown as T;
+  return element as T;
 }
 
 // Elements
@@ -61,6 +61,15 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const USERNAME_REGEX = /^\S(.*\S)?$/;
 const PASSWORD_REGEX = /^(?=.*[^A-Za-z]).{8,}$/;
 
+// Error messages
+const ERROR_MESSAGES = {
+  EMAIL: "Invalid email format",
+  USERNAME: "Invalid username format",
+  PASSWORD: "Password must be at least 8 characters and contain a non-letter",
+  CONFIRM_REQUIRED: "Confirm password is required",
+  CONFIRM_MISMATCH: "Passwords do not match",
+};
+
 // Validation helpers
 function validateInput(
   input: HTMLInputElement,
@@ -76,24 +85,24 @@ function validateInput(
 }
 
 function validatePasswordMatch(password: string, confirm: string): string {
-  if (confirm === "") return "Confirm password is required";
-  if (confirm !== password) return "Passwords do not match";
+  if (confirm === "") return ERROR_MESSAGES.CONFIRM_REQUIRED;
+  if (confirm !== password) return ERROR_MESSAGES.CONFIRM_MISMATCH;
   return "";
 }
 
 // Apply live validation
-validateInput(emailInput, emailError, EMAIL_REGEX, "Invalid email format");
+validateInput(emailInput, emailError, EMAIL_REGEX, ERROR_MESSAGES.EMAIL);
 validateInput(
   usernameInput,
   usernameError,
   USERNAME_REGEX,
-  "Invalid username format",
+  ERROR_MESSAGES.USERNAME,
 );
 validateInput(
   passwordInput,
   passwordError,
   PASSWORD_REGEX,
-  "Password must be at least 8 characters and contain a non-letter",
+  ERROR_MESSAGES.PASSWORD,
 );
 
 // Confirm password live check
@@ -141,11 +150,10 @@ signupForm.addEventListener("submit", validateForm);
 // Reset handler
 signupForm.addEventListener("reset", () => {
   requestAnimationFrame(() => {
-    emailError.textContent = "Invalid email format";
-    usernameError.textContent = "Invalid username format";
-    passwordError.textContent =
-      "Password must be at least 8 characters and contain a non-letter";
-    confirmError.textContent = "Confirm password is required";
+    emailError.textContent = ERROR_MESSAGES.EMAIL;
+    usernameError.textContent = ERROR_MESSAGES.USERNAME;
+    passwordError.textContent = ERROR_MESSAGES.PASSWORD;
+    confirmError.textContent = ERROR_MESSAGES.CONFIRM_REQUIRED;
 
     userInfo.innerHTML = "";
   });
